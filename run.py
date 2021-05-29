@@ -31,8 +31,12 @@ def start(update, context):
 #функция для обработки команды /hello
 def hello(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="Как тебя зовут?")
+    
+def hello_2(update, context):
+    context.bot.send_message(chat_id=update.effective_chat.id, text="Как делишки?")
 
-#функция эхо для команды /echo
+    
+    #функция эхо для команды /echo
 def echo(update, context):
     help_text = f'''
     Привет, я не знаю команду {update.message.text}
@@ -70,6 +74,9 @@ updater.dispatcher.add_handler(CallbackQueryHandler(button))
 
 hello_handler = CommandHandler('hello', hello)
 dispatcher.add_handler(hello_handler)
+
+hello_handler_2 = CommandHandler('hello_2', hello_2)
+dispatcher.add_handler(hello_handler_2)
 
 caps_handler = CommandHandler('caps', caps)
 dispatcher.add_handler(caps_handler)
